@@ -3,10 +3,14 @@ using System.Collections;
 
 public class AspectRatio : MonoBehaviour {
 
-    public float gameAspect = 9.0f / 16.0f;
+    public float width = 9.0f;
+    public float height = 16.0f;
+
     public Camera cameraComponent;
 
     private void Start() {
+        float gameAspect = width / height;
+
         float targetAspect = (float)Screen.height / (float)Screen.width;
 
         float scaleWidth = targetAspect / gameAspect;
@@ -15,7 +19,7 @@ public class AspectRatio : MonoBehaviour {
             cameraComponent = GetComponent<Camera>();
         }
 
-        // if scaled width is less than current width, add pillarbox
+        // If scaled width is less than current width, add pillarbox
         if (scaleWidth < 1.0f) {
             float scalewidth = 1.0f / scaleWidth;
 
@@ -27,7 +31,7 @@ public class AspectRatio : MonoBehaviour {
             rect.y = 0;
 
             cameraComponent.rect = rect;
-        } else { // add letterbox
+        } else { // Add letterbox
             Rect rect = cameraComponent.rect;
 
             rect.width = 1.0f;
