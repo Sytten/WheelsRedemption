@@ -11,7 +11,7 @@ public class Rotation : MonoBehaviour {
     public Transform transformComponent;
 
 	private void Start () {
-       if(transformComponent == null) {
+        if (transformComponent == null) {
             transformComponent = GetComponent<Transform>();
         }
 	}

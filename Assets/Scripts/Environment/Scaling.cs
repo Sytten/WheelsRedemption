@@ -11,7 +11,7 @@ public class Scaling : MonoBehaviour {
     public Transform transformComponent;
 
 	private void Start () {
-	    if(transformComponent == null) {
+	    if (transformComponent == null) {
             transformComponent = GetComponent<Transform>();
         }
 
@@ -19,7 +19,7 @@ public class Scaling : MonoBehaviour {
 	}
 
     private void Update() {
-        if(transformComponent != null) {
+        if (transformComponent != null) {
             transformComponent.localScale = new Vector3((int)scale, (int)scale, (int)scale);
         }
     }
