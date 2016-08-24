@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: QuriousDev
   productName: The Wheels of Redemption
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -341,7 +341,8 @@ PlayerSettings:
   psp2UseDebugIl2cppLibs: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    7: 
   metroPackageName: The Wheels of Redemption
   metroPackageVersion: 
   metroCertificatePath: 
