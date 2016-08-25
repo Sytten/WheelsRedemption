@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Jump : MonoBehaviour {
 
-	public GameObject sprite = null;
-
 	public int minJumpPower = 250;
 	public int maxJumpPower = 350;
 
@@ -13,13 +11,11 @@ public class Jump : MonoBehaviour {
 	private float jumpPower = 0;
 	private Rigidbody2D rigidbodyComponent = null;
 
-	// Use this for initialization
 	void Start () {
 		jumpPower = minJumpPower;
-		rigidbodyComponent = sprite.GetComponent<Rigidbody2D> ();
+		rigidbodyComponent = GetComponent<Rigidbody2D> ();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
 		// Check if the hero has landed
