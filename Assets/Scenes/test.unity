@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55d000a552cb47c3b2e3f765cb64fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 1
-  jumpPower: 300
   sprite: {fileID: 2065334969}
+  minJumpPower: 250
+  maxJumpPower: 350
 --- !u!1 &226671404 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013681269314, guid: 30935d1a1d35b401f88981d0823f5865,
