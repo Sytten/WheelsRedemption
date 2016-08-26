@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013148848996}
+  - 50: {fileID: 50000011276414876}
+  - 114: {fileID: 114000010331614572}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -35,6 +37,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011665919700}
   - 212: {fileID: 212000013487539346}
+  - 61: {fileID: 61000014149581412}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -69,6 +72,50 @@ Transform:
   - {fileID: 4000011665919700}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000011276414876
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011287043484}
+  m_UseAutoMass: 0
+  m_Mass: 0.5
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61000014149581412
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012459272224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!114 &114000010331614572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011287043484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55d000a552cb47c3b2e3f765cb64fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minJumpPower: 250
+  maxJumpPower: 350
 --- !u!212 &212000013487539346
 SpriteRenderer:
   m_ObjectHideFlags: 1
