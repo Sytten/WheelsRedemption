@@ -10,7 +10,7 @@ public class ModifySurfaceEffector : MonoBehaviour {
     public SurfaceEffector2D surfaceEffector;
 
     private void OnTriggerEnter2D (Collider2D collider) {
-        if(surfaceEffector != null) {
+        if (surfaceEffector != null) {
             surfaceEffector.speed = (int)newDirection * newSpeed;
         }
     }
