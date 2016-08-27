@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ModifySurfaceEffector : MonoBehaviour {
 
-    public enum Direction { RIGHT = 1, LEFT = -1};
+    public enum Direction { RIGHT = 1, LEFT = -1 };
 
     public int newSpeed;
     public Direction newDirection;
