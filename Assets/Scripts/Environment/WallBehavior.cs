@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WallBehavior : DefaultBehavior {
 
-	public override void HeroBehavior(GameObject obj) {
-		Debug.Log ("Hero made contact with wall!");
+	public override void HeroBehavior(Hero hero) {
+		hero.speed *= -1;
 	}
 }

@@ -17,8 +17,11 @@ public class Hero : MonoBehaviour {
 		transform.position = new Vector3(position.x + (speed * Time.deltaTime), position.y, position.z);
 	}
 
-	void OnCollisionEnter(Collision collision) {
+	void OnCollisionEnter2D(Collision2D collision) {
 		DefaultBehavior behavior = collision.gameObject.GetComponent<DefaultBehavior> ();
-		behavior.HeroBehavior (gameObject);
+
+		if (behavior != null) {
+			behavior.HeroBehavior (this);
+		}
 	}
 }
