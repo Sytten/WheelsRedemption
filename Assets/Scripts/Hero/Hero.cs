@@ -3,25 +3,31 @@ using System.Collections;
 
 public class Hero : MonoBehaviour {
 
-	public enum Direction { RIGHT = 1, LEFT = -1 };
+    private State currentState;
 
-	public int speed = 1;
-	public Direction direction = Direction.LEFT;
+    public void ChangeState(State newState) {
+        currentState = newState;
+        newState.Start();
+    }
 
-	void Start () {
-		speed *= (int)direction;
+    public void Jump(float jumpPower) {
+        currentState.Jump(jumpPower);
+    }
+
+	private void Start() {
+        currentState = new OnStartingPlatformState(this);
+        currentState.Start();
 	}
 
-	void Update () {
-		Vector3 position = transform.position;
-		transform.position = new Vector3(position.x + (speed * Time.deltaTime), position.y, position.z);
+	private void Update() {
+        currentState.Update();
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		DefaultBehavior behavior = collision.gameObject.GetComponent<DefaultBehavior> ();
-
-		if (behavior != null) {
-			behavior.HeroBehavior (this);
-		}
+	private void OnCollisionEnter2D(Collision2D collision) {
+        currentState.OnCollisionEnter2D(collision);
 	}
+
+    private void OnCollisionStay2D(Collision2D collision) {
+        currentState.OnCollisionStay2D(collision);
+    }
 }

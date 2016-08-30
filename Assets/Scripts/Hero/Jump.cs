@@ -6,40 +6,34 @@ public class Jump : MonoBehaviour {
 	public int minJumpPower = 250;
 	public int maxJumpPower = 350;
 
-	private bool isGrounded = true;
-	private bool timerStarted = false;
+    public Hero hero = null;
+
+    private bool timerStarted = false;
 	private float jumpPower = 0;
-	private Rigidbody2D rigidbodyComponent = null;
 
 	void Start () {
 		jumpPower = minJumpPower;
-		rigidbodyComponent = GetComponent<Rigidbody2D> ();
+
+        if (hero == null) {
+            hero = GetComponent<Hero>();
+        }
 	}
 	
 	void Update () {
-
-		// Check if the hero has landed
-		if (!isGrounded && rigidbodyComponent.velocity.y == 0) {
-			isGrounded = true;
-		}
-
 		// Start a timer to calculate the final jump power
-		if (Input.GetKeyDown (KeyCode.Space) && isGrounded && !timerStarted) {
+		if (Input.GetKeyDown (KeyCode.Space) && !timerStarted) {
 			timerStarted = true;
 		}
 
 		// Jump only if the hero is currently grounded
-		if (Input.GetKeyUp (KeyCode.Space) && isGrounded) {
+		if (Input.GetKeyUp (KeyCode.Space)) {
 
 			if (jumpPower > maxJumpPower) {
 				jumpPower = maxJumpPower;
 			}
 
-			// Jump
-			rigidbodyComponent.AddForce(Vector2.up * jumpPower);
-
-			// Update states
-			isGrounded = false;
+            hero.Jump(jumpPower);
+		
 			timerStarted = false;
 			jumpPower = minJumpPower;
 		}

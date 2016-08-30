@@ -150,6 +150,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minJumpPower: 250
   maxJumpPower: 350
+  hero: {fileID: 0}
+--- !u!114 &161269249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 161269247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7528e61ada74af9af1a39e5233a13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &161269250
 Rigidbody2D:
   serializedVersion: 2
@@ -167,19 +179,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &161269251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161269247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7528e61ada74af9af1a39e5233a13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  direction: -1
 --- !u!61 &161269252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +212,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &226671407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 226671404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a443f121424a0604b8b40ec2d9028e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  direction: 1
 --- !u!1001 &262507789
 Prefab:
   m_ObjectHideFlags: 0
@@ -483,6 +495,10 @@ Prefab:
     - target: {fileID: 4000010655329768, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013681269314, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
+      propertyPath: m_TagString
+      value: StartingZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
