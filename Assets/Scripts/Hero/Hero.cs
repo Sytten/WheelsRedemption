@@ -3,20 +3,23 @@ using System.Collections;
 
 public class Hero : MonoBehaviour {
 
-    private State currentState;
+	public IState onPlatformState { get; private set; }
+	public IState inAirState { get; private set; }
+	public IState onWheelState { get; private set; }
 
-    public void ChangeState(State newState) {
+    private IState currentState;
+
+    public void ChangeState(IState newState) {
         currentState = newState;
-        newState.Start();
+		currentState.Start();
     }
-
-    public void Jump(float jumpPower) {
-        currentState.Jump(jumpPower);
-    }
-
+		
 	private void Start() {
-        currentState = new OnStartingPlatformState(this);
-        currentState.Start();
+		onPlatformState = new OnPlatformState(this);
+		inAirState = new InAirState(this);
+		onWheelState = new OnWheelState(this);
+
+		ChangeState(onPlatformState);
 	}
 
 	private void Update() {

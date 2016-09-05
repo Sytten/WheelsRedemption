@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public interface State {
+public interface IState {
 
     void Start();
 
@@ -15,6 +15,4 @@ public interface State {
     void OnCollisionStay2D(Collision2D collision);
 
     void OnCollisionExit2D(Collision2D collision);
-
-    void Jump(float jumpPower);
 }

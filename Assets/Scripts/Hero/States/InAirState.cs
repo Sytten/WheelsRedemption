@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JumpingState : State {
+public class InAirState : IState {
 
     private Hero hero;
 
-    public JumpingState(Hero hero) {
+    public InAirState(Hero hero) {
         this.hero = hero;
     }
 
@@ -22,12 +22,13 @@ public class JumpingState : State {
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.collider.tag == "StartingZone") {
+			hero.ChangeState(hero.onPlatformState);
+        }
     }
 
     public virtual void OnCollisionStay2D(Collision2D collision) {
-        if (collision.collider.tag == "StartingZone") {
-            hero.ChangeState(new OnStartingPlatformState(hero));
-        }
+        
     }
 
     public virtual void OnCollisionExit2D(Collision2D collision) {

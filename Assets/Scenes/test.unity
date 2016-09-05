@@ -137,94 +137,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011287043484, guid: 78a3dc023d569417a9e383334d3bb41e,
     type: 2}
   m_PrefabInternal: {fileID: 161269246}
---- !u!114 &161269248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161269247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55d000a552cb47c3b2e3f765cb64fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minJumpPower: 250
-  maxJumpPower: 350
-  hero: {fileID: 0}
---- !u!114 &161269249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161269247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7528e61ada74af9af1a39e5233a13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &161269250
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161269247}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &161269252
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161269247}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.8}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.6}
---- !u!1 &226671404 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013681269314, guid: 30935d1a1d35b401f88981d0823f5865,
-    type: 2}
-  m_PrefabInternal: {fileID: 1695387986}
---- !u!61 &226671406
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 226671404}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!114 &226671407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 226671404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a443f121424a0604b8b40ec2d9028e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  direction: 1
 --- !u!1001 &262507789
 Prefab:
   m_ObjectHideFlags: 0
@@ -294,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 461073494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a860be1e5cc474b89ec760f45c4fcc, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b7f7ee4d8e9446f84c4c500f8314e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &730311204
@@ -336,43 +248,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1000013566059252, guid: 863e3edd2097b42c48a09425487a17c6, type: 2}
-      propertyPath: m_Name
-      value: Right Wall
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 863e3edd2097b42c48a09425487a17c6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1506945943 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013566059252, guid: 863e3edd2097b42c48a09425487a17c6,
-    type: 2}
-  m_PrefabInternal: {fileID: 730311204}
---- !u!61 &1506945944
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506945943}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 2, y: 15}
---- !u!114 &1506945946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506945943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a860be1e5cc474b89ec760f45c4fcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1585264187
 Prefab:
   m_ObjectHideFlags: 0
@@ -495,10 +373,6 @@ Prefab:
     - target: {fileID: 4000010655329768, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013681269314, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
-      propertyPath: m_TagString
-      value: StartingZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30935d1a1d35b401f88981d0823f5865, type: 2}
