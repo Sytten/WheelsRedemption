@@ -19,7 +19,6 @@ public class OnPlatformState : IState {
     }
 
     public virtual void Start() {
-		//heroRigidbody.velocity = new Vector2(speed, 0);
     }
 
     public virtual void Update() {
