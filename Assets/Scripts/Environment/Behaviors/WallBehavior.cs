@@ -4,10 +4,7 @@ using System.Collections;
 public class WallBehavior : Behavior {
 
 	public override void Execute(OnPlatformState state) {
-		state.changeHeroDirection();
+		state.ChangeHeroDirection();
 	}
 
-	public override void Execute(IState state) {
-		
-	}
 }
