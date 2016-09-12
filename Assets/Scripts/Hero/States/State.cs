@@ -15,4 +15,6 @@ public interface IState {
     void OnCollisionStay2D(Collision2D collision);
 
     void OnCollisionExit2D(Collision2D collision);
+
+    void KillHero();
 }
