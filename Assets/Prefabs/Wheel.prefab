@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000012901111650}
   - 114: {fileID: 114000010237216336}
   - 114: {fileID: 114000014215157512}
+  - 58: {fileID: 58000010654790194}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Environment
@@ -52,7 +53,7 @@ Transform:
   m_GameObject: {fileID: 1000011635763384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 5, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013668071454}
@@ -71,6 +72,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012901111650}
   m_RootOrder: 0
+--- !u!58 &58000010654790194
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011635763384}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!114 &114000010237216336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2450237ef1f23b4894d50a137170acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelSpeed: 3
+  wheelSpeed: 1
   direction: -1
   transformComponent: {fileID: 4000012901111650}
 --- !u!114 &114000014215157512
@@ -96,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f5457be2882e14b9757d80b1d6d80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 1
+  scale: 3
   transformComponent: {fileID: 4000012901111650}
 --- !u!212 &212000013315567528
 SpriteRenderer:
