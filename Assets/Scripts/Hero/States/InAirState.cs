@@ -25,6 +25,12 @@ public class InAirState : IState {
 		if (collision.collider.tag == "StartingZone") {
 			hero.ChangeState(hero.onPlatformState);
         }
+
+        Behavior behavior = collision.gameObject.GetComponent<Behavior>();
+
+        if (behavior != null) {
+            behavior.Execute(this);
+        }
     }
 
     public virtual void OnCollisionStay2D(Collision2D collision) {
@@ -35,5 +41,9 @@ public class InAirState : IState {
     }
 
     public void Jump(float jumpPower) {
+    }
+
+    public void KillHero() {
+        LevelManager.Instance.RestartScene ();
     }
 }
