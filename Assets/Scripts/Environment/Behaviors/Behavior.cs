@@ -3,7 +3,12 @@ using System.Collections;
 
 public abstract class Behavior : MonoBehaviour {
 
-	public abstract void Execute(OnPlatformState state);
+	public virtual void Execute(OnPlatformState state) {
+    }
 
-	public abstract void Execute(IState state);
+    public virtual void Execute(InAirState state) {
+    }
+
+    public virtual void Execute(IState state) {
+    }
 }
