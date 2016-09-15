@@ -12,8 +12,8 @@ public class LavaGrowth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3 (transform.position.x,
-            transform.position.y + (Time.deltaTime * growthSpeedMultiplier),
-            transform.position.z);
+        transform.Translate(new Vector3 (0,
+            Time.deltaTime * growthSpeedMultiplier,
+            0));
 	}
 }
