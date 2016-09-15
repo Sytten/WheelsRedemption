@@ -7,5 +7,9 @@ public abstract class Behavior : MonoBehaviour {
         Execute ((IState)state);
     }
 
-	public abstract void Execute(IState state);
+    public virtual void Execute(InAirState state) {
+    }
+
+    public virtual void Execute(IState state) {
+    }
 }

@@ -49,7 +49,7 @@ public class OnPlatformState : IState {
     public virtual void OnCollisionExit2D(Collision2D collision) {
     }
 
-	public void changeHeroDirection() {
+	public void ChangeHeroDirection() {
 		speed *= -1;
 		heroRigidbody.velocity = new Vector2(speed, 0);
 	}
