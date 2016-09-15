@@ -40,6 +40,6 @@ public class OnWheelState : IState {
 
 
     public void KillHero() {
-        LevelManager.Instance.RestartScene ();
+        LevelManager.RestartScene ();
     }
 }

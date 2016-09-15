@@ -44,6 +44,6 @@ public class InAirState : IState {
     }
 
     public void KillHero() {
-        LevelManager.Instance.RestartScene ();
+        LevelManager.RestartScene ();
     }
 }

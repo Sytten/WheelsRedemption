@@ -88,6 +88,6 @@ public class OnPlatformState : IState {
 
 
     public void KillHero() {
-        LevelManager.Instance.RestartScene ();
+        LevelManager.RestartScene ();
     }
 }
