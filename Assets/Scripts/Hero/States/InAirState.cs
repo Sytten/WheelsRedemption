@@ -30,12 +30,6 @@ public class InAirState : IState {
         if (behavior != null) {
             behavior.Execute(this);
         }
-
-        Behavior behavior = collision.gameObject.GetComponent<Behavior>();
-
-        if (behavior != null) {
-            behavior.Execute(this);
-        }
     }
 
     public virtual void OnCollisionStay2D(Collision2D collision) {
