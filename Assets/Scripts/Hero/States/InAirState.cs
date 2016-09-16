@@ -56,7 +56,7 @@ public class InAirState : IState {
             hero.transform.position = new Vector3(hero.transform.position.x, hero.transform.position.y, 2);
             
             //Rotate the hero to make it face the outside
-            hero.transform.up = lastCollision.contacts[0].point - (Vector2) lastCollision.transform.position;
+            hero.transform.up = lastCollision.contacts[0].point - (Vector2) lastCollision.transform.parent.position;
 
             //Translate the hero to show it entirely 
             hero.transform.position += hero.transform.up.normalized * hero.GetComponent<BoxCollider2D>().size.y / 2.0f;
