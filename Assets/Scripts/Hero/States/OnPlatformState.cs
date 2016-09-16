@@ -85,4 +85,9 @@ public class OnPlatformState : IState {
 
 		return false;
 	}
+
+
+    public void KillHero() {
+        LevelManager.RestartScene ();
+    }
 }

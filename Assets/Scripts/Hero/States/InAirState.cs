@@ -65,4 +65,8 @@ public class InAirState : IState {
             hero.ChangeState(hero.onWheelState);
         }
     }
+
+    public void KillHero() {
+        LevelManager.RestartScene ();
+    }
 }

@@ -22,6 +22,11 @@ public class OnWheelState : IState {
 	}
 
 	public virtual void OnCollisionEnter2D(Collision2D collision) {
+        Behavior behavior = collision.gameObject.GetComponent<Behavior>();
+
+        if (behavior != null) {
+            behavior.Execute(this);
+        }
 	}
 
 	public virtual void OnCollisionStay2D(Collision2D collision) {
@@ -32,4 +37,9 @@ public class OnWheelState : IState {
 
 	public void Jump(float jumpPower) {
 	}
+
+
+    public void KillHero() {
+        LevelManager.RestartScene ();
+    }
 }
