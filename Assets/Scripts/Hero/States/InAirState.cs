@@ -4,16 +4,20 @@ using System.Collections;
 public class InAirState : IState {
 
     private Hero hero = null;
+    private Rigidbody2D heroRigidbody;
     private Collision2D lastCollision = null;
+    private bool ignoreFirstCollision = false;
 
     public InAirState(Hero hero) {
         this.hero = hero;
+        heroRigidbody = hero.GetComponent<Rigidbody2D>();
     }
 
     public virtual void Start() {
     }
 
     public virtual void Update() {
+        hero.transform.up = Vector2.Lerp(hero.transform.up, heroRigidbody.velocity.normalized, 0.1f);
     }
 
     public virtual void FixedUpdate() {
@@ -39,11 +43,12 @@ public class InAirState : IState {
     }
 
     public void LandHeroOnPlatform() {
+        hero.transform.up = Vector2.up;
         hero.ChangeState(hero.onPlatformState);
     }
     
     public void AttachHeroToLastCollision() {
-        if(lastCollision != null) {
+        if(lastCollision != null && !ignoreFirstCollision) {
             //Move the hero to contact point
             hero.transform.position = lastCollision.contacts[0].point;
 
@@ -62,8 +67,15 @@ public class InAirState : IState {
             //Disable physic
             hero.GetComponent<Rigidbody2D>().isKinematic = true;
 
+            //Ignore next first collision (necessary to avoid unwanted collision with the wheel when entering this state)
+            ignoreFirstCollision = true;
+
             hero.ChangeState(hero.onWheelState);
+
+            return;
         }
+
+        ignoreFirstCollision = false;
     }
 
     public void KillHero() {
