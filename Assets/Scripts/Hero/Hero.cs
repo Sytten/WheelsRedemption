@@ -33,4 +33,9 @@ public class Hero : MonoBehaviour {
     private void OnCollisionStay2D(Collision2D collision) {
         currentState.OnCollisionStay2D(collision);
     }
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        currentState.OnTriggerEnter2D (collider);
+    }
+        
 }

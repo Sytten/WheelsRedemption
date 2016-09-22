@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Environment
   - StartingZone
+  - FinishZone
   layers:
   - Default
   - TransparentFX

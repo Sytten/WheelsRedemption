@@ -16,5 +16,7 @@ public interface IState {
 
     void OnCollisionExit2D(Collision2D collision);
 
+    void OnTriggerEnter2D(Collider2D collider);
+
     void KillHero();
 }

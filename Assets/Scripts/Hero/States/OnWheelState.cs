@@ -45,6 +45,9 @@ public class OnWheelState : IState {
 	public virtual void OnCollisionExit2D(Collision2D collision) {
 	}
 
+    public virtual void OnTriggerEnter2D(Collider2D collider) {
+    }
+
     public void KillHero() {
         LevelManager.RestartScene ();
 	}
