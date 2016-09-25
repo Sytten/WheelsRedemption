@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class PlayerStatistics : MonoBehaviour {
+public class PlayerStatistics {
 
     private List<LevelStatistics> levelsStatistics;
 
@@ -16,15 +16,17 @@ public class PlayerStatistics : MonoBehaviour {
     }
 
     public void AddLevelStatistics(LevelStatistics levelStatistics) {
-        if(levelsStatistics != null) {
-            LevelStatistics currentStatistics = levelsStatistics.Find(level => level.GetId() == levelStatistics.GetId());
-
-            if(currentStatistics != null) {
-                levelsStatistics.Remove(currentStatistics);
-            }
-
-            levelsStatistics.Add(levelStatistics);
+        if(levelsStatistics == null) {
+            levelsStatistics = new List<LevelStatistics>();
         }
+
+        LevelStatistics currentStatistics = levelsStatistics.Find(level => level.GetId() == levelStatistics.GetId());
+
+        if(currentStatistics != null) {
+            levelsStatistics.Remove(currentStatistics);
+        }
+
+        levelsStatistics.Add(levelStatistics);
     }
 
     public LevelStatistics SetLevelStatistics(int id) {

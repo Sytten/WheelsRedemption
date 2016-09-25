@@ -5,7 +5,7 @@ using System.IO;
 
 public class DataManager {
 
-    private static string PLAYER_STATISTICS_FILE = Application.dataPath + "playerStatistics.bin";
+    private static string PLAYER_STATISTICS_FILE = Application.dataPath + "/playerStatistics.bin";
 
     private static BinaryFormatter binaryFormatter = new BinaryFormatter();
 
