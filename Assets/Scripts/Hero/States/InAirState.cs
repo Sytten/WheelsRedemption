@@ -42,6 +42,14 @@ public class InAirState : IState {
     public virtual void OnCollisionExit2D(Collision2D collision) {
     }
 
+    public virtual void OnTriggerEnter2D(Collider2D collider) {
+        Behavior behavior = collider.gameObject.GetComponent<Behavior>();
+
+        if (behavior != null) {
+            behavior.Execute(this);
+        }
+    }
+
     public void LandHeroOnPlatform() {
         hero.transform.up = Vector2.up;
         hero.ChangeState(hero.onPlatformState);
