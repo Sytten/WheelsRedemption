@@ -29,7 +29,7 @@ public class InAirState : IState {
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision) {
-        if(!collisionTimer.IgnoreCollision()) {
+        if (!collisionTimer.IgnoreCollision()) {
             lastCollision = collision;
 
             Behavior behavior = collision.gameObject.GetComponent<Behavior>();
