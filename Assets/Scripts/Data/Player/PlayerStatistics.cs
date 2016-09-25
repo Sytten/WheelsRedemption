@@ -15,7 +15,7 @@ public class PlayerStatistics : MonoBehaviour {
         this.levelsStatistics = levelsStatistics;
     }
 
-    public void SddLevelStatistics(LevelStatistics levelStatistics) {
+    public void AddLevelStatistics(LevelStatistics levelStatistics) {
         if(levelsStatistics != null) {
             LevelStatistics currentStatistics = levelsStatistics.Find(level => level.GetId() == levelStatistics.GetId());
 
@@ -27,7 +27,7 @@ public class PlayerStatistics : MonoBehaviour {
         }
     }
 
-    public LevelStatistics SetLevelStatistics(int Id) {
-        return levelsStatistics.Find(level => level.GetId() == Id);
+    public LevelStatistics SetLevelStatistics(int id) {
+        return levelsStatistics.Find(level => level.GetId() == id);
     }
 }
