@@ -6,7 +6,7 @@ public class InAirState : IState {
     private Hero hero = null;
     private Rigidbody2D heroRigidbody;
     private Collision2D lastCollision = null;
-    private bool ignoreFirstCollision = false;
+    private CollisionTimer collisionTimer = new CollisionTimer(100);
 
     public InAirState(Hero hero) {
         this.hero = hero;
@@ -14,6 +14,8 @@ public class InAirState : IState {
     }
 
     public virtual void Start() {
+        collisionTimer.Reset();
+        collisionTimer.StartTimer();
     }
 
     public virtual void Update() {
@@ -27,12 +29,14 @@ public class InAirState : IState {
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision) {
-        lastCollision = collision;
+        if (!collisionTimer.IgnoreCollision()) {
+            lastCollision = collision;
 
-        Behavior behavior = collision.gameObject.GetComponent<Behavior>();
+            Behavior behavior = collision.gameObject.GetComponent<Behavior>();
 
-        if (behavior != null) {
-            behavior.Execute(this);
+            if (behavior != null) {
+                behavior.Execute(this);
+            }
         }
     }
 
@@ -56,7 +60,7 @@ public class InAirState : IState {
     }
     
     public void AttachHeroToLastCollision() {
-        if(lastCollision != null && !ignoreFirstCollision) {
+        if(lastCollision != null) {
             //Move the hero to contact point
             hero.transform.position = lastCollision.contacts[0].point;
 
@@ -64,10 +68,10 @@ public class InAirState : IState {
             hero.transform.position = new Vector3(hero.transform.position.x, hero.transform.position.y, 2);
             
             //Rotate the hero to make it face the outside
-            hero.transform.up = lastCollision.contacts[0].point - (Vector2) lastCollision.transform.position;
+            hero.transform.up = lastCollision.contacts[0].point - (Vector2) lastCollision.transform.parent.position;
 
             //Translate the hero to show it entirely 
-            hero.transform.position += hero.transform.up.normalized * hero.GetComponent<BoxCollider2D>().size.y / 2.0f;
+            hero.transform.position += hero.transform.up.normalized * (hero.GetComponent<BoxCollider2D>().size.y / 2.0f);
 
             //Make it follow the wheel movement
             hero.transform.parent = lastCollision.transform;
@@ -75,15 +79,10 @@ public class InAirState : IState {
             //Disable physic
             hero.GetComponent<Rigidbody2D>().isKinematic = true;
 
-            //Ignore next first collision (necessary to avoid unwanted collision with the wheel when entering this state)
-            ignoreFirstCollision = true;
-
             hero.ChangeState(hero.onWheelState);
 
             return;
         }
-
-        ignoreFirstCollision = false;
     }
 
     public void KillHero() {
