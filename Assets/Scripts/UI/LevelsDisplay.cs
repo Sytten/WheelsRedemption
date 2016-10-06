@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class LevelsDisplay : MonoBehaviour {
@@ -6,14 +7,16 @@ public class LevelsDisplay : MonoBehaviour {
     public GameObject levelButtonPrefab;
 
 	void Start () {
-        List<int> levelsID = LevelManager.getLevelsID();
+        List<int> levelsId = LevelManager.getLevelsID();
 
-        foreach (int levelID in levelsID) {
+        foreach (int levelId in levelsId) {
             GameObject levelButton = Instantiate(levelButtonPrefab) as GameObject;
 
-            levelButton.GetComponent<LevelButtonAction>().levelID = levelID;
+            levelButton.name = "Level" + levelId.ToString();
+            levelButton.GetComponent<LevelButtonAction>().levelId = levelId;
+            levelButton.GetComponentInChildren<Text>().text = levelId.ToString();
 
-            levelButton.transform.parent = transform;
+            levelButton.transform.SetParent(transform, false);
         }
 	}
 }

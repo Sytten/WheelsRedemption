@@ -4,10 +4,10 @@ using System.Collections;
 
 public class LevelButtonAction : MonoBehaviour {
 
-    public int levelID = 1;
+    public int levelId = 1;
 
 	void Start () {
         Button playButton = GetComponent<Button>();
-        playButton.onClick.AddListener(() => LevelManager.LoadLevel(levelID));
+        playButton.onClick.AddListener(() => LevelManager.LoadLevel(levelId));
 	}
 }

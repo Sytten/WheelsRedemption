@@ -21,12 +21,12 @@ public class LevelManager
     }
 
     public static List<int> getLevelsID() {
+        List<string> scenesNames = DataManager.LoadBuildScenesNames().getScenesNames();
         List<int> levelsID = new List<int>();
 
-        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; ++i) {
-            int id = 0;
-            string levelName = SceneManager.GetSceneAt(i).name;
-            if (int.TryParse(levelName, out id)) {
+        int id = 0;
+        foreach (string sceneName in scenesNames) {
+            if (int.TryParse(sceneName, out id)) {
                 levelsID.Add(id);
             }
         }
