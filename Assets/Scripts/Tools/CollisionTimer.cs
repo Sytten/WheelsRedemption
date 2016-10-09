@@ -13,11 +13,11 @@ public class CollisionTimer {
         timerThread = new Thread(new ThreadStart(waitBeforeEnablingCollisions));
     }
 
-	public void StartTimer() {
+    public void StartTimer() {
         timerThread.Start();
-	}
-	
-	private void waitBeforeEnablingCollisions() {
+    }
+
+    private void waitBeforeEnablingCollisions() {
         Thread.Sleep(timeBeforeCollisionsEnabled);
         ignore = false;
     }

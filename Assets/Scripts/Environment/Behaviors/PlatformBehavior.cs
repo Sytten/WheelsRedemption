@@ -6,5 +6,4 @@ public class PlatformBehavior : Behavior {
     public override void Execute(InAirState state) {
         state.LandHeroOnPlatform();
     }
-
 }

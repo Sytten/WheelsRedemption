@@ -6,7 +6,7 @@ public class LevelsDisplay : MonoBehaviour {
 
     public GameObject levelButtonPrefab;
 
-	void Start () {
+    void Start() {
         List<int> levelsId = LevelManager.getLevelsID();
 
         foreach (int levelId in levelsId) {
@@ -18,5 +18,5 @@ public class LevelsDisplay : MonoBehaviour {
 
             levelButton.transform.SetParent(transform, false);
         }
-	}
+    }
 }

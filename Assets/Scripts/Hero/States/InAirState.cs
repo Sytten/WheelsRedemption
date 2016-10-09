@@ -58,15 +58,15 @@ public class InAirState : IState {
         hero.transform.up = Vector2.up;
         hero.ChangeState(hero.onPlatformState);
     }
-    
+
     public void AttachHeroToLastCollision() {
-        if(lastCollision != null) {
+        if (lastCollision != null) {
             //Move the hero to contact point
             hero.transform.position = lastCollision.contacts[0].point;
 
             //Arrange the depth field
             hero.transform.position = new Vector3(hero.transform.position.x, hero.transform.position.y, 2);
-            
+
             //Rotate the hero to make it face the outside
             hero.transform.up = lastCollision.contacts[0].point - (Vector2) lastCollision.transform.parent.position;
 
@@ -86,6 +86,6 @@ public class InAirState : IState {
     }
 
     public void KillHero() {
-        LevelManager.RestartScene ();
+        LevelManager.RestartScene();
     }
 }

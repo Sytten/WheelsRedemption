@@ -14,7 +14,7 @@ public class Following : MonoBehaviour {
     private float currentVelocity;
     private float cameraHeight = 0;
 
-	void Start () {
+    void Start() {
         if (target == null) {
             target = GameObject.FindGameObjectWithTag("Player");
         }
@@ -25,8 +25,8 @@ public class Following : MonoBehaviour {
 
         cameraHeight = cameraComponent.orthographicSize;
     }
-	
-	void FixedUpdate () {
+
+    void FixedUpdate() {
         float verticalPosition = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref currentVelocity, smoothTime);
 
         if (useBoundaries) {
@@ -38,5 +38,5 @@ public class Following : MonoBehaviour {
         }
 
         transform.position = new Vector3(transform.position.x, verticalPosition, transform.position.z);
-	}
+    }
 }

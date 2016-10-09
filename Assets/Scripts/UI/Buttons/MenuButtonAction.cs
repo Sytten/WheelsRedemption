@@ -4,18 +4,18 @@ using System.Collections;
 
 public class MenuButtonAction : MonoBehaviour {
 
-    public enum Menus { MainMenu, LevelsMenu };
+    public enum Menus { MAIN, LEVELS };
 
-    public Menus onClickMenu = Menus.MainMenu;
+    public Menus onClickMenu = Menus.MAIN;
 
     void Start() {
         Button menuButton = GetComponent<Button>();
 
         switch (onClickMenu) {
-            case Menus.MainMenu:
+            case Menus.MAIN:
                 menuButton.onClick.AddListener(() => LevelManager.LoadMainMenu());
                 break;
-            case Menus.LevelsMenu:
+            case Menus.LEVELS:
                 menuButton.onClick.AddListener(() => LevelManager.LoadLevelsMenu());
                 break;
         }

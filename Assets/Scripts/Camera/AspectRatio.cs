@@ -11,7 +11,7 @@ public class AspectRatio : MonoBehaviour {
     private void Start() {
         float gameAspect = width / height;
 
-        float targetAspect = (float)Screen.height / (float)Screen.width;
+        float targetAspect = (float) Screen.height / (float) Screen.width;
 
         float scaleWidth = targetAspect / gameAspect;
 
@@ -42,5 +42,4 @@ public class AspectRatio : MonoBehaviour {
             cameraComponent.rect = rect;
         }
     }
-
 }

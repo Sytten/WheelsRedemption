@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Hero : MonoBehaviour {
 
-	public IState onPlatformState { get; private set; }
-	public IState inAirState { get; private set; }
-	public IState onWheelState { get; private set; }
+    public IState onPlatformState { get; private set; }
+    public IState inAirState { get; private set; }
+    public IState onWheelState { get; private set; }
 
     private IState currentState;
 
@@ -13,8 +13,8 @@ public class Hero : MonoBehaviour {
         currentState = newState;
         currentState.Start();
     }
-		
-	private void Start() {
+
+    private void Start() {
         onPlatformState = new OnPlatformState(this);
         inAirState = new InAirState(this);
         onWheelState = new OnWheelState(this);
@@ -35,7 +35,6 @@ public class Hero : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        currentState.OnTriggerEnter2D (collider);
+        currentState.OnTriggerEnter2D(collider);
     }
-        
 }

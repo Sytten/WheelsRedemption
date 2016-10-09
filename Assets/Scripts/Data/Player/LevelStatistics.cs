@@ -16,7 +16,7 @@ public class LevelStatistics {
 
     public int GetStars() {
         return stars;
-    } 
+    }
 
     public float GetBestTime() {
         return bestTime;
@@ -27,13 +27,13 @@ public class LevelStatistics {
     }
 
     public void SetStars(int stars) {
-        if(stars > 0 && stars < MAX_STARS) {
+        if (stars > 0 && stars < MAX_STARS) {
             this.stars = stars;
         }
     }
 
     public void SetBestTime(float bestTime) {
-        if(bestTime > 0) {
+        if (bestTime > 0) {
             this.bestTime = bestTime;
         }
     }
@@ -46,7 +46,7 @@ public class LevelStatistics {
     public LevelStatistics withStars(int stars) {
         SetStars(stars);
         return this;
-    } 
+    }
 
     public LevelStatistics withBestTime(float bestTime) {
         SetBestTime(bestTime);

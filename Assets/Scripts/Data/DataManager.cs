@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 public class DataManager {
 
     private static string PLAYER_STATISTICS_FILE = Application.dataPath + "/playerStatistics.bin";
-    private static string BUILD_SCENES_NAMES_FILE = Application.dataPath +  "/ScenesNamesList.asset";
+    private static string BUILD_SCENES_NAMES_FILE = Application.dataPath + "/ScenesNamesList.asset";
     private static string SCENE_NAME_REGEX = @"([^/]*/)*([\w\d\-]*)\.unity";
 
     private static BinaryFormatter binaryFormatter = new BinaryFormatter();

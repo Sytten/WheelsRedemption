@@ -16,13 +16,13 @@ public class PlayerStatistics {
     }
 
     public void AddLevelStatistics(LevelStatistics levelStatistics) {
-        if(levelsStatistics == null) {
+        if (levelsStatistics == null) {
             levelsStatistics = new List<LevelStatistics>();
         }
 
         LevelStatistics currentStatistics = levelsStatistics.Find(level => level.GetId() == levelStatistics.GetId());
 
-        if(currentStatistics != null) {
+        if (currentStatistics != null) {
             levelsStatistics.Remove(currentStatistics);
         }
 

@@ -1,10 +1,10 @@
 ﻿using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class LevelManager
-{
+public class LevelManager {
+
     public static void RestartScene() {
-        Scene scene = SceneManager.GetActiveScene(); 
+        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 

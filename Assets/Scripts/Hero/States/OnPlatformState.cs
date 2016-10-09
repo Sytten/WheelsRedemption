@@ -3,12 +3,12 @@ using System.Collections;
 
 public class OnPlatformState : IState {
 
-	private int speed = 10;
+    private int speed = 10;
 
-	private readonly int minJumpPower = 250;
-	private readonly int maxJumpPower = 350;
-	private bool timerStarted = false;
-	private float jumpPower = 0;
+    private readonly int minJumpPower = 250;
+    private readonly int maxJumpPower = 350;
+    private bool timerStarted = false;
+    private float jumpPower = 0;
 
     private Hero hero = null;
     private Rigidbody2D heroRigidbody = null;
@@ -22,11 +22,11 @@ public class OnPlatformState : IState {
     }
 
     public virtual void Update() {
-		heroRigidbody.velocity = new Vector2(speed, 0);
+        heroRigidbody.velocity = new Vector2(speed, 0);
 
-		if(isReadytoJump()) {
-			jump();
-		}
+        if (isReadytoJump()) {
+            jump();
+        }
     }
 
     public virtual void FixedUpdate() {
@@ -39,7 +39,7 @@ public class OnPlatformState : IState {
         Behavior behavior = collision.gameObject.GetComponent<Behavior>();
 
         if (behavior != null) {
-			behavior.Execute(this);
+            behavior.Execute(this);
         }
     }
 
@@ -52,45 +52,44 @@ public class OnPlatformState : IState {
     public virtual void OnTriggerEnter2D(Collider2D collider) {
     }
 
-	public void ChangeHeroDirection() {
-		speed *= -1;
-		heroRigidbody.velocity = new Vector2(speed, 0);
-	}
-
-    private void jump() {
-		heroRigidbody.velocity = Vector2.zero;
-        heroRigidbody.AddForce(Vector2.up * jumpPower);
-		hero.ChangeState(hero.inAirState);
+    public void ChangeHeroDirection() {
+        speed *= -1;
+        heroRigidbody.velocity = new Vector2(speed, 0);
     }
 
-	private bool isReadytoJump() {
-		if (Input.GetKeyDown (KeyCode.Space) && !timerStarted) {
-			timerStarted = true;
-			jumpPower = minJumpPower;
-		}
+    private void jump() {
+        heroRigidbody.velocity = Vector2.zero;
+        heroRigidbody.AddForce(Vector2.up * jumpPower);
+        hero.ChangeState(hero.inAirState);
+    }
 
-		// Jump only if the hero is currently grounded
-		if (Input.GetKeyUp (KeyCode.Space)) {
+    private bool isReadytoJump() {
+        if (Input.GetKeyDown(KeyCode.Space) && !timerStarted) {
+            timerStarted = true;
+            jumpPower = minJumpPower;
+        }
 
-			if (jumpPower > maxJumpPower) {
-				jumpPower = maxJumpPower;
-			}
+        // Jump only if the hero is currently grounded
+        if (Input.GetKeyUp(KeyCode.Space)) {
 
-			timerStarted = false;
+            if (jumpPower > maxJumpPower) {
+                jumpPower = maxJumpPower;
+            }
 
-			return true;
-		}
+            timerStarted = false;
 
-		// Increment the jump power
-		if (timerStarted) {
-			jumpPower += maxJumpPower * Time.deltaTime / 2;
-		}
+            return true;
+        }
 
-		return false;
-	}
+        // Increment the jump power
+        if (timerStarted) {
+            jumpPower += maxJumpPower * Time.deltaTime / 2;
+        }
 
+        return false;
+    }
 
     public void KillHero() {
-        LevelManager.RestartScene ();
+        LevelManager.RestartScene();
     }
 }

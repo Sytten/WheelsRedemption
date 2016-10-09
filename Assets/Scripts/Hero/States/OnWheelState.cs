@@ -12,45 +12,45 @@ public class OnWheelState : IState {
     private Rigidbody2D heroRigidbody;
 
     public OnWheelState(Hero hero) {
-		this.hero = hero;
+        this.hero = hero;
         heroRigidbody = hero.GetComponent<Rigidbody2D>();
-	}
+    }
 
-	public virtual void Start() {
-	}
+    public virtual void Start() {
+    }
 
-	public virtual void Update() {
+    public virtual void Update() {
         if (isReadytoJump()) {
             jump();
         }
     }
 
-	public virtual void FixedUpdate() {
-	}
+    public virtual void FixedUpdate() {
+    }
 
-	public virtual void LateUpdate() {
-	}
+    public virtual void LateUpdate() {
+    }
 
-	public virtual void OnCollisionEnter2D(Collision2D collision) {
+    public virtual void OnCollisionEnter2D(Collision2D collision) {
         Behavior behavior = collision.gameObject.GetComponent<Behavior>();
 
         if (behavior != null) {
             behavior.Execute(this);
         }
-	}
+    }
 
-	public virtual void OnCollisionStay2D(Collision2D collision) {
-	}
+    public virtual void OnCollisionStay2D(Collision2D collision) {
+    }
 
-	public virtual void OnCollisionExit2D(Collision2D collision) {
-	}
+    public virtual void OnCollisionExit2D(Collision2D collision) {
+    }
 
     public virtual void OnTriggerEnter2D(Collider2D collider) {
     }
 
     public void KillHero() {
-        LevelManager.RestartScene ();
-	}
+        LevelManager.RestartScene();
+    }
 
     private void jump() {
         //Remove the parent wheel

@@ -3,8 +3,7 @@ using System.Collections;
 
 public class WallBehavior : Behavior {
 
-	public override void Execute(OnPlatformState state) {
-		state.ChangeHeroDirection();
-	}
-
+    public override void Execute(OnPlatformState state) {
+        state.ChangeHeroDirection();
+    }
 }
