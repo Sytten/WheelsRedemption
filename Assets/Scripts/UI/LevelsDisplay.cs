@@ -7,7 +7,7 @@ public class LevelsDisplay : MonoBehaviour {
     public GameObject levelButtonPrefab;
 
     void Start() {
-        List<int> levelsId = LevelManager.getLevelsID();
+        List<int> levelsId = LevelManager.GetLevelsId();
 
         foreach (int levelId in levelsId) {
             GameObject levelButton = Instantiate(levelButtonPrefab) as GameObject;
