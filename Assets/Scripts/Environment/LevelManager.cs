@@ -8,4 +8,12 @@ public class LevelManager
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }
+
+    public static void LoadLevel(int id) {
+        SceneManager.LoadScene(id.ToString());
+    }
+
+    public static void LoadMainMenu() {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
