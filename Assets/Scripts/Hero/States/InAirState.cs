@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class InAirState : IState {
+public class InAirState : State {
 
     private Hero hero = null;
     private Rigidbody2D heroRigidbody;
@@ -13,22 +12,16 @@ public class InAirState : IState {
         heroRigidbody = hero.GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Start() {
+    public override void Start() {
         collisionTimer.Reset();
         collisionTimer.StartTimer();
     }
 
-    public virtual void Update() {
+    public override void Update() {
         hero.transform.up = Vector2.Lerp(hero.transform.up, heroRigidbody.velocity.normalized, 0.1f);
     }
 
-    public virtual void FixedUpdate() {
-    }
-
-    public virtual void LateUpdate() {
-    }
-
-    public virtual void OnCollisionEnter2D(Collision2D collision) {
+    public override void OnCollisionEnter2D(Collision2D collision) {
         if (!collisionTimer.IgnoreCollision()) {
             lastCollision = collision;
 
@@ -40,13 +33,7 @@ public class InAirState : IState {
         }
     }
 
-    public virtual void OnCollisionStay2D(Collision2D collision) {
-    }
-
-    public virtual void OnCollisionExit2D(Collision2D collision) {
-    }
-
-    public virtual void OnTriggerEnter2D(Collider2D collider) {
+    public override void OnTriggerEnter2D(Collider2D collider) {
         Behavior behavior = collider.gameObject.GetComponent<Behavior>();
 
         if (behavior != null) {
@@ -83,9 +70,5 @@ public class InAirState : IState {
 
             return;
         }
-    }
-
-    public void KillHero() {
-        LevelManager.RestartScene();
     }
 }

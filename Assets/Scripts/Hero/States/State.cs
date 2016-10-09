@@ -1,22 +1,38 @@
 ﻿using UnityEngine;
 
-public interface IState {
+public abstract class State {
 
-    void Start();
+    public virtual void Start() {
+    }
 
-    void Update();
+    public virtual void Update() {
+    }
 
-    void FixedUpdate();
+    public virtual void FixedUpdate() {
+    }
 
-    void LateUpdate();
+    public virtual void LateUpdate() {
+    }
 
-    void OnCollisionEnter2D(Collision2D collision);
+    public virtual void OnCollisionEnter2D(Collision2D collision) {
+    }
 
-    void OnCollisionStay2D(Collision2D collision);
+    public virtual void OnCollisionStay2D(Collision2D collision) {
+    }
 
-    void OnCollisionExit2D(Collision2D collision);
+    public virtual void OnCollisionExit2D(Collision2D collision) {
+    }
 
-    void OnTriggerEnter2D(Collider2D collider);
+    public virtual void OnTriggerEnter2D(Collider2D collider) {
+    }
 
-    void KillHero();
+    public virtual void KillHero() {
+        Time.timeScale = 0f;
+        InGameMenuDisplay.LoadLoseMenu();
+    }
+
+    public virtual void HeroWin() {
+        Time.timeScale = 0f;
+        InGameMenuDisplay.LoadWinMenu();
+    }
 }

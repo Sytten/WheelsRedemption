@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class OnWheelState : IState {
+public class OnWheelState : State {
 
     private readonly int minJumpPower = 250;
     private readonly int maxJumpPower = 350;
@@ -16,40 +15,18 @@ public class OnWheelState : IState {
         heroRigidbody = hero.GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Start() {
-    }
-
-    public virtual void Update() {
+    public override void Update() {
         if (isReadytoJump()) {
             jump();
         }
     }
 
-    public virtual void FixedUpdate() {
-    }
-
-    public virtual void LateUpdate() {
-    }
-
-    public virtual void OnCollisionEnter2D(Collision2D collision) {
+    public override void OnCollisionEnter2D(Collision2D collision) {
         Behavior behavior = collision.gameObject.GetComponent<Behavior>();
 
         if (behavior != null) {
             behavior.Execute(this);
         }
-    }
-
-    public virtual void OnCollisionStay2D(Collision2D collision) {
-    }
-
-    public virtual void OnCollisionExit2D(Collision2D collision) {
-    }
-
-    public virtual void OnTriggerEnter2D(Collider2D collider) {
-    }
-
-    public void KillHero() {
-        LevelManager.RestartScene();
     }
 
     private void jump() {
