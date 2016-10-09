@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Hero : MonoBehaviour {
 
-    public IState onPlatformState { get; private set; }
-    public IState inAirState { get; private set; }
-    public IState onWheelState { get; private set; }
+    public State onPlatformState { get; private set; }
+    public State inAirState { get; private set; }
+    public State onWheelState { get; private set; }
 
-    private IState currentState;
+    private State currentState;
 
-    public void ChangeState(IState newState) {
+    public void ChangeState(State newState) {
         currentState = newState;
         currentState.Start();
     }

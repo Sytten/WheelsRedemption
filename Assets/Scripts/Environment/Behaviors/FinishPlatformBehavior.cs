@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿public class FinishPlatformBehavior : Behavior {
 
-public class FinishPlatformBehavior : Behavior {
-
-    public override void Execute(IState state) {
-        LevelManager.RestartScene();
+    public override void Execute(State state) {
+        state.HeroWin();
     }
 }

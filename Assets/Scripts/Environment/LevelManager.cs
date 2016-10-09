@@ -1,26 +1,47 @@
-﻿using UnityEngine.SceneManagement;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager {
 
     public static void RestartScene() {
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        loadScene(scene.name);
     }
 
     public static void LoadLevel(int id) {
-        SceneManager.LoadScene(id.ToString());
+        loadScene(id.ToString());
+    }
+
+    public static void LoadNextLevel() {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        int sceneId = -1;
+
+        if (!int.TryParse(currentScene.name, out sceneId)) {
+            Debug.LogError("Impossible to load next level if not already in a level.");
+            return;
+        }
+
+        sceneId++;
+        List<int> scenesId = GetLevelsId();
+
+        if (scenesId.Contains(sceneId)) {
+            loadScene(sceneId.ToString());
+        } else {
+            LoadLevelsMenu();
+        }
     }
 
     public static void LoadMainMenu() {
-        SceneManager.LoadScene("MainMenu");
+        loadScene("MainMenu");
     }
 
     public static void LoadLevelsMenu() {
-        SceneManager.LoadScene("LevelsMenu");
+        loadScene("LevelsMenu");
     }
 
-    public static List<int> getLevelsID() {
+    public static List<int> GetLevelsId() {
         List<string> scenesNames = DataManager.LoadBuildScenesNames().getScenesNames();
         List<int> levelsID = new List<int>();
 
@@ -32,5 +53,10 @@ public class LevelManager {
         }
 
         return levelsID;
+    }
+
+    private static void loadScene(string sceneName) {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 }

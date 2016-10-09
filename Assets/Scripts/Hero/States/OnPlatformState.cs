@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class OnPlatformState : IState {
+public class OnPlatformState : State {
 
     private int speed = 10;
 
@@ -18,10 +17,7 @@ public class OnPlatformState : IState {
         heroRigidbody = hero.GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Start() {
-    }
-
-    public virtual void Update() {
+    public override void Update() {
         heroRigidbody.velocity = new Vector2(speed, 0);
 
         if (isReadytoJump()) {
@@ -29,27 +25,12 @@ public class OnPlatformState : IState {
         }
     }
 
-    public virtual void FixedUpdate() {
-    }
-
-    public virtual void LateUpdate() {
-    }
-
-    public virtual void OnCollisionEnter2D(Collision2D collision) {
+    public override void OnCollisionEnter2D(Collision2D collision) {
         Behavior behavior = collision.gameObject.GetComponent<Behavior>();
 
         if (behavior != null) {
             behavior.Execute(this);
         }
-    }
-
-    public virtual void OnCollisionStay2D(Collision2D collision) {
-    }
-
-    public virtual void OnCollisionExit2D(Collision2D collision) {
-    }
-
-    public virtual void OnTriggerEnter2D(Collider2D collider) {
     }
 
     public void ChangeHeroDirection() {
@@ -87,9 +68,5 @@ public class OnPlatformState : IState {
         }
 
         return false;
-    }
-
-    public void KillHero() {
-        LevelManager.RestartScene();
     }
 }
