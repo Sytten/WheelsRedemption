@@ -41,7 +41,7 @@ GameObject:
   - 114: {fileID: 114000011871068216}
   - 114: {fileID: 114000011427320034}
   m_Layer: 0
-  m_Name: Level
+  m_Name: LevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aee9bc4e16e974c89dc62bb4161c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 1
+  levelId: 1
 --- !u!114 &114000011871068216
 MonoBehaviour:
   m_ObjectHideFlags: 1
