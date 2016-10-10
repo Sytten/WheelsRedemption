@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class DataManagerEditor : MonoBehaviour {
 
-    private static string BUILD_SCENES_NAMES_FILE = Application.dataPath + "/ScenesNamesList.asset";
+    private static string BUILD_SCENES_NAMES_FILE = Application.dataPath + "/Resources/ScenesNamesList.bytes";
     private static string SCENE_NAME_REGEX = @"([^/]*/)*([\w\d\-]*)\.unity";
 
     private static BinaryFormatter binaryFormatter = new BinaryFormatter();

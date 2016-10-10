@@ -45,13 +45,13 @@ public class OnPlatformState : State {
     }
 
     private bool isReadytoJump() {
-        if (Input.GetKeyDown(KeyCode.Space) && !timerStarted) {
+        if (InputManager.JumpButtonPressed() && !timerStarted) {
             timerStarted = true;
             jumpPower = minJumpPower;
         }
 
         // Jump only if the hero is currently grounded
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (InputManager.JumpButtonReleased()) {
 
             if (jumpPower > maxJumpPower) {
                 jumpPower = maxJumpPower;
