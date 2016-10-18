@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DataManager {
 
-    private static string PLAYER_STATISTICS_FILE = Application.dataPath + "/playerStatistics.bin";
-    private static string BUILD_SCENES_NAMES_FILE = Application.dataPath + "/ScenesNamesList.asset";
+    private static string PLAYER_STATISTICS_FILE = Application.persistentDataPath + "/playerStatistics.bin";
+    private static string BUILD_SCENES_NAMES_FILE = "ScenesNamesList";
 
     private static BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -29,11 +29,9 @@ public class DataManager {
     public static ScenesNamesList LoadBuildScenesNames() {
         ScenesNamesList scenesNamesList = new ScenesNamesList();
 
-        if (File.Exists(BUILD_SCENES_NAMES_FILE)) {
-            FileStream file = File.Open(BUILD_SCENES_NAMES_FILE, FileMode.Open);
-            scenesNamesList = (ScenesNamesList) binaryFormatter.Deserialize(file);
-            file.Close();
-        }
+        TextAsset file = Resources.Load(BUILD_SCENES_NAMES_FILE) as TextAsset;
+        Stream fileStream = new MemoryStream(file.bytes);
+        scenesNamesList = (ScenesNamesList) binaryFormatter.Deserialize(fileStream);
 
         return scenesNamesList;
     }
