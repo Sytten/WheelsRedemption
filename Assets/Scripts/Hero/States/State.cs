@@ -35,4 +35,7 @@ public abstract class State {
         Time.timeScale = 0f;
         InGameMenuDisplay.LoadWinMenu();
     }
+
+    public virtual void Jump() {
+    }
 }

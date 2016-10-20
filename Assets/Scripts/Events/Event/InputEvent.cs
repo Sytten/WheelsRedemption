@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class InputEvent : IEvent {
+
     private Touch touch;
 
     public Touch getTouch() {

@@ -1,6 +1,7 @@
 ﻿using System;
 
 public class TypeSpecifier<TBase, TDerived> : IEventSubscriber<TBase> where TDerived : TBase {
+
     private IEventSubscriber<TDerived> inner;
 
     public TypeSpecifier(IEventSubscriber<TDerived> inner) {

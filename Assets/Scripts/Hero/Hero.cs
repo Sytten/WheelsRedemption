@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Hero : MonoBehaviour {
+public class Hero : MonoBehaviour, IInputEventReceiver {
 
     public State onPlatformState { get; private set; }
     public State inAirState { get; private set; }
@@ -19,6 +19,8 @@ public class Hero : MonoBehaviour {
         onWheelState = new OnWheelState(this);
 
         ChangeState(onPlatformState);
+
+        EventManager.Subscribe<InputEvent>(this);
     }
 
     private void Update() {
@@ -35,5 +37,11 @@ public class Hero : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collider) {
         currentState.OnTriggerEnter2D(collider);
+    }
+
+    public void Handle(InputEvent data) {
+        if (data.getTouch().Equals(InputManager.DEFAULT_TOUCH)) {
+            currentState.Jump();
+        }
     }
 }

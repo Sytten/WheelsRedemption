@@ -1,4 +1,5 @@
 ﻿public class EventManager {
+
     private static Dispatcher<IEvent> dispatcher = new Dispatcher<IEvent>();
 
     public static void Publish(IEvent data) {
