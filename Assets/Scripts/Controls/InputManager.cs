@@ -1,35 +1,25 @@
 ﻿using UnityEngine;
 
-public class InputManager {
+public class InputManager : MonoBehaviour {
+
+    public static readonly Touch DEFAULT_TOUCH = new Touch();
 
 #pragma warning disable 0414
     private static int previousTouchCount = 0;
 
-    public static bool JumpButtonPressed() {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            return true;
-        }
-#elif UNITY_ANDROID
-        if (Input.touchCount > 0 && previousTouchCount == 0) {
-            previousTouchCount = Input.touchCount;
-            return true;
-        }
-#endif
-        return false;
-    }
-
-    public static bool JumpButtonReleased() {
+    private void Update() {
 #if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.Space)) {
-            return true;
+            EventManager.Publish(new InputEvent().withTouch(DEFAULT_TOUCH));
         }
 #elif UNITY_ANDROID
         if (Input.touchCount == 0 && previousTouchCount > 0) {
             previousTouchCount = Input.touchCount;
-            return true;
+            EventManager.Publish(new InputEvent().withTouch(DEFAULT_TOUCH));
+        } else if (Input.touchCount > 0 && previousTouchCount == 0) {
+            previousTouchCount = Input.touchCount;
+            EventManager.Publish(new InputEvent().withTouch(DEFAULT_TOUCH)); return true;
         }
 #endif
-        return false;
     }
 }
