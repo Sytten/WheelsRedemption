@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Hero : MonoBehaviour, IInputEventReceiver {
+public class Hero : MonoBehaviour, IEventSubscriber<InputEvent> {
 
     public State onPlatformState { get; private set; }
     public State inAirState { get; private set; }
@@ -14,13 +14,13 @@ public class Hero : MonoBehaviour, IInputEventReceiver {
     }
 
     private void Start() {
+        EventManager.Subscribe<InputEvent>(this);
+
         onPlatformState = new OnPlatformState(this);
         inAirState = new InAirState(this);
         onWheelState = new OnWheelState(this);
 
         ChangeState(onPlatformState);
-
-        EventManager.Subscribe<InputEvent>(this);
     }
 
     private void Update() {
@@ -39,9 +39,20 @@ public class Hero : MonoBehaviour, IInputEventReceiver {
         currentState.OnTriggerEnter2D(collider);
     }
 
+    private void OnDestroy() {
+        EventManager.UnSubscribe<InputEvent>(this);
+    }
+
     public void Handle(InputEvent data) {
-        if (data.getTouch().Equals(InputManager.DEFAULT_TOUCH)) {
+        if (data.Equals(InputManager.DEFAULT_INPUT_EVENT) || heroWasPressed(data)) {
             currentState.Jump();
         }
+    }
+
+    private bool heroWasPressed(InputEvent data) {
+        if (gameObject.GetComponent<Collider2D>().bounds.Contains(data.GetWorldPosition()) && data.GetPhase() == TouchPhase.Began) {
+            return true;
+        }
+        return false;
     }
 }

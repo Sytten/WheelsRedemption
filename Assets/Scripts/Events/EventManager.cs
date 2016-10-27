@@ -9,4 +9,8 @@
     public static void Subscribe<T>(IEventSubscriber<T> handler) where T : IEvent {
         dispatcher.Subscribe<T>(handler);
     }
+
+    public static void UnSubscribe<T>(IEventSubscriber<T> handler) where T : IEvent {
+        dispatcher.UnSubscribe<T>(handler);
+    }
 }

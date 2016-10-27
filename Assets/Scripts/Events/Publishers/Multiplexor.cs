@@ -8,6 +8,10 @@ public class Multiplexor<T> : IEventSubscriber<T> where T : IEvent {
         subscribers.Add(subscriber);
     }
 
+    public void RemoveSubscriber(IEventSubscriber<T> subscriber) {
+        subscribers.Remove(subscriber);
+    }
+
     public void Handle(T data) {
         subscribers.ForEach(x => x.Handle(data));
     }

@@ -23,4 +23,12 @@ public class Dispatcher<TBase> : IEventPublisher<TBase> where TBase : IEvent {
 
         multiplexor.AttachSubscriber(new TypeSpecifier<TBase, TDerived>(handler));
     }
+
+    public void UnSubscribe<TDerived>(IEventSubscriber<TDerived> handler) where TDerived : TBase {
+        Multiplexor<TBase> multiplexor;
+
+        if (subscriptions.TryGetValue(typeof(TDerived), out multiplexor)) {
+            multiplexor.RemoveSubscriber((IEventSubscriber<TBase>) handler);
+        }
+    }
 }

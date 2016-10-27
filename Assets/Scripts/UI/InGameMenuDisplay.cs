@@ -22,7 +22,7 @@ public static class InGameMenuDisplay {
     private static GameObject loadMenuFramework() {
         GameObject menuFramework = GameObject.Instantiate(Resources.Load("Menu Framework") as GameObject);
 
-        menuFramework.GetComponentInChildren<Canvas>().worldCamera = Camera.current;
+        menuFramework.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
 
         return menuFramework;
     }

@@ -1,4 +1,4 @@
-﻿interface IEventPublisher<T> {
+﻿interface IEventPublisher<T> where T : IEvent {
 
     void Publish(T data);
 
