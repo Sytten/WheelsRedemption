@@ -71,6 +71,8 @@ GameObject:
   - 4: {fileID: 4000013588681040}
   - 114: {fileID: 114000011724590596}
   - 114: {fileID: 114000011671071540}
+  - 58: {fileID: 58000010561242966}
+  - 114: {fileID: 114000011045792250}
   m_Layer: 0
   m_Name: Wheel 1110
   m_TagString: Environment
@@ -288,6 +290,20 @@ Transform:
   - {fileID: 4000012620257906}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &58000010561242966
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011995065188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!68 &68000010070178422
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -475,6 +491,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2eb1815295dcf4cae6c31dfae780e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011045792250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011995065188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73e9c0839988e4fb1cbdd6cd16ad0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {fileID: 114000011724590596}
 --- !u!114 &114000011671071540
 MonoBehaviour:
   m_ObjectHideFlags: 1
