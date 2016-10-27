@@ -25,7 +25,7 @@ public class OnWheelState : State {
         hero.transform.parent = null;
 
         //Enable physic
-        heroRigidbody.isKinematic = false;
+        heroRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         //Stop the player and apply the force
         heroRigidbody.velocity = Vector2.zero;

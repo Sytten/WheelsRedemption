@@ -64,7 +64,7 @@ public class InAirState : State {
             hero.transform.parent = lastCollision.transform;
 
             //Disable physic
-            hero.GetComponent<Rigidbody2D>().isKinematic = true;
+            heroRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
 
             hero.ChangeState(hero.onWheelState);
 
