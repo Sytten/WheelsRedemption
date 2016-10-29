@@ -3,10 +3,11 @@
 public class InputManager : MonoBehaviour {
 
     public static readonly InputEvent DEFAULT_INPUT_EVENT = InputEventTranslator.toEvent(new Touch());
+    public static readonly int DEFAULT_FINGER_ID = -1000;
 
 #pragma warning disable 0414
-    private static int previousTouchCount = 0;
-    private static SubscriberComponent<InputEvent> inputSubscriber = null;
+    private int fingerId = DEFAULT_FINGER_ID;
+    private SubscriberComponent<InputEvent> inputSubscriber = null;
 
     private void Update() {
 
@@ -24,18 +25,27 @@ public class InputManager : MonoBehaviour {
             inputSubscriber = null;
         }
 #elif UNITY_ANDROID
-        if (Input.touchCount > 0 && previousTouchCount == 0) {
-            Touch currentTouch = Input.GetTouch(0);
+        if (fingerId == DEFAULT_FINGER_ID) {
+            foreach (Touch touch in Input.touches) {
+                if (touch.phase == TouchPhase.Began) {
+                    fingerId = touch.fingerId;
 
-            inputReceiver = tryToGetInputEventReceiver(currentTouch.position);
+                    inputSubscriber = tryToGetInputEventReceiver(touch.position);
 
-            if (inputReceiver != null) {
-                inputReceiver.Handle(InputEventTranslator.toEvent(currentTouch));
-            } else {
-                EventManager.Publish(DEFAULT_INPUT_EVENT);
+                    if (inputSubscriber != null) {
+                        inputSubscriber.Handle(InputEventTranslator.toEvent(touch));
+                    } else {
+                        EventManager.Publish(DEFAULT_INPUT_EVENT);
+                    }
+                }
             }
+        } else if (touchHasEnded(fingerId)) {
+            if (inputSubscriber != null) {
+                inputSubscriber.Handle(new InputEvent().WithPosition(Input.mousePosition).WithPhase(TouchPhase.Ended));
+                inputSubscriber = null;
+            }
+            fingerId = DEFAULT_FINGER_ID;
         }
-        previousTouchCount = Input.touchCount;
 #endif
     }
 
@@ -48,5 +58,14 @@ public class InputManager : MonoBehaviour {
         }
 
         return null;
+    }
+
+    private bool touchHasEnded(int fingerId) {
+        foreach (Touch touch in Input.touches) {
+            if (touch.fingerId == fingerId && touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
+                return false;
+            }
+        }
+        return true;
     }
 }

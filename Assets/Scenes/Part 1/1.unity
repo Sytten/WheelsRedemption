@@ -371,7 +371,7 @@ Prefab:
     - target: {fileID: 114000013926747596, guid: 22bc52aba625b4eb9bc5fd0e9148a779,
         type: 2}
       propertyPath: growthSpeedMultiplier
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22bc52aba625b4eb9bc5fd0e9148a779, type: 2}
