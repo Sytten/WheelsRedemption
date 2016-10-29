@@ -44,7 +44,7 @@ public class Hero : MonoBehaviour, IEventSubscriber<InputEvent> {
     }
 
     public void Handle(InputEvent data) {
-        if (data.Equals(InputManager.DEFAULT_INPUT_EVENT) || heroWasPressed(data)) {
+        if (data.Equals(InputStrategy.DEFAULT_INPUT_EVENT) || heroWasPressed(data)) {
             currentState.Jump();
         }
     }
