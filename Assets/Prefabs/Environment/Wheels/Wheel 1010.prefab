@@ -506,7 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2450237ef1f23b4894d50a137170acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelSpeed: 1
+  speed: 2
+  speedTransitionVelocity: 2
+  speedMutiplier: 1
   direction: -1
   transformComponent: {fileID: 4000013505950202}
 --- !u!114 &114000011977366592
