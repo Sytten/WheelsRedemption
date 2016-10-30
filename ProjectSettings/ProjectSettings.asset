@@ -94,13 +94,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.QuriousDev.WheelsRedemption
-  bundleVersion: 0.0.1
+  bundleVersion: 0.0.2
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 19
   AndroidPreferredInstallLocation: 0
   aotOptions: 
