@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Dispatcher<TBase> : IEventPublisher<TBase> where TBase : IEvent {
 
     private readonly Dictionary<Type, Multiplexor<TBase>> subscriptions = new Dictionary<Type, Multiplexor<TBase>>();
+	private delegate void EventDelegate<T>(T e) where T : IEvent;
 
     public void Publish(TBase data) {
         Multiplexor<TBase> multiplexor;
@@ -17,7 +18,7 @@ public class Dispatcher<TBase> : IEventPublisher<TBase> where TBase : IEvent {
         Multiplexor<TBase> multiplexor;
 
         if (!subscriptions.TryGetValue(typeof(TDerived), out multiplexor)) {
-            multiplexor = new Multiplexor<TBase>();
+			multiplexor = new Multiplexor<TBase>();
             subscriptions.Add(typeof(TDerived), multiplexor);
         }
 
