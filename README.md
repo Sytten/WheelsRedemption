@@ -2,6 +2,8 @@
 
 Mobile Game prototype made with Unity based on the popular flash game [Wheels of Salvation](https://www.miniclip.com/games/wheels-of-salvation/).
 
+**THIS CODE IS RELEASED UNDER THE GPL LICENSE, IF YOU WANT TO USE IT FOR ANYTHING THAT IS NOT OPEN-SOURCE CONTACT ME FIRST.**
+
 ## Download
 The app is not officially released on any store, but here is the latest unofficial build:
 - Android: [Download](https://github.com/Sytten/WheelsRedemption/releases/download/v0.1.0/The.Wheels.of.Redemptions.0.1.0.android.apk)
